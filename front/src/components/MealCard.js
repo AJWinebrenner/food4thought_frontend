@@ -4,7 +4,7 @@ const MealCard = ({meal}) => {
 
 
     return(
-        <article class="card">
+        <article className="card">
             <h3>{meal.name}</h3>
             <p>{meal.ingredients}</p>
         </article>
