@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({mainIngredient: "chicken", difficulty: "BEGINNER", wantHelp: false});
   const [faves, setFaves] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
 

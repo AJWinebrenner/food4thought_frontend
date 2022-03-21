@@ -6,22 +6,35 @@ const SuggestedMealsContainer = ({user, faves}) => {
 
     const [suggested, setSuggested] = useState({});
 
+    //validation
+    const isInfo = () => {
+        if (user.mainIngredient && user.difficulty && user.wantHelp) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     const suggest = () => {
-        fetch("http://localhost:8080/user", { 
+        if (isInfo) {
+            fetch("http://localhost:8080/user", { 
             // authorize
-            method: "GET",
-            headers: {
-                'Authorization': 'Basic '+btoa('foo:foo'), 
-                'Content-Type': 'application/x-www-form-urlencoded'
-            
-            },
-            body: user
-        })
-            // add data to allMeals
-            .then(response => response.json())
-            .then(data => setSuggested(data))
-            // catch error
-            .catch(error => console.error(error))   
+                method: "POST",
+                headers: {
+                    'Authorization': 'Basic '+btoa('foo:foo'), 
+                    'Content-Type': 'application/json'
+        
+                },
+                body: JSON.stringify(user)
+            })
+                // add data to allMeals
+                .then(response => response.json())
+                .then(data => setSuggested(data))
+                // catch error
+                .catch(error => console.error(error))   
+        }
+        
     }
 
     useEffect(suggest, [user]);
