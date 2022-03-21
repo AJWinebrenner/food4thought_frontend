@@ -1,4 +1,5 @@
 import MealCard from "../components/MealCard";
+import SearchBar from "../components/SearchBar";
 
 const MealsContainer = ({meals}) => {
 
@@ -9,6 +10,7 @@ const MealsContainer = ({meals}) => {
     return (
         <>
             <h2>Meal Container</h2>
+            <SearchBar/>
             {mealCards}
         </>
     )

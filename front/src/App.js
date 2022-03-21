@@ -9,10 +9,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   return (
-    <>
-      <MealsPage user = {user} faves = {faves} />
-
-    </>
+    <MealsPage user = {user} faves = {faves} />
   );
 }
 
