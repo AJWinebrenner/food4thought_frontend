@@ -17,18 +17,17 @@ const SuggestedMealsContainer = ({user, faves}) => {
     }
 
     const suggest = () => {
-        if (isInfo) {
+        if (isInfo()) {
             fetch("http://localhost:8080/user", { 
             // authorize
                 method: "POST",
                 headers: {
                     'Authorization': 'Basic '+btoa('foo:foo'), 
                     'Content-Type': 'application/json'
-        
                 },
                 body: JSON.stringify(user)
             })
-                // add data to allMeals
+                // set by response body
                 .then(response => response.json())
                 .then(data => setSuggested(data))
                 // catch error
@@ -42,13 +41,23 @@ const SuggestedMealsContainer = ({user, faves}) => {
 
 
     // create array of ChefCardMini and use that instead
-    return (
-        <>
-            <h2>Suggested</h2>
-            <MealCard meal={suggested}/>
-            <ChefCardMini/> 
-        </>
-    )
+    if (isInfo()) {
+        return (
+            <>
+                <h2>Suggested</h2>
+                <MealCard meal={suggested}/>
+                <ChefCardMini/> 
+            </>
+        )
+    } else {
+        return (
+            <>
+                <h2>Suggested</h2>
+                <p>no user details</p>
+            </>
+        )
+    }
+        
 }
 
 export default SuggestedMealsContainer;
