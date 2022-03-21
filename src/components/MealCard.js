@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-const MealCard = () => {
+const MealCard = ({meal}) => {
 
 
     return(
-        <p>MealCard</p>
+        <p>{meal.name}</p>
     );
 }
 
