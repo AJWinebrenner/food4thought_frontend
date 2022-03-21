@@ -4,7 +4,10 @@ const MealCard = ({meal}) => {
 
 
     return(
-        <p>{meal.name}</p>
+        <>
+            <h3>{meal.name}</h3>
+            <p>{meal.ingredients}</p>
+        </>
     );
 }
 
