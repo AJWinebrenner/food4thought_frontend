@@ -3,7 +3,8 @@ import SuggestedMealsContainer from "../containers/SuggestedMealsContainer";
 import MealsContainer from "../containers/MealsContainer";
 import { useEffect, useState } from "react";
 
-const MealsPage = () => {
+
+const MealsPage = ({user, faves}) => {
 
     const [allMeals, setAllMeals] = useState([]);
 
@@ -28,8 +29,9 @@ const MealsPage = () => {
     return(
         <>
             <Header/>
-            <SuggestedMealsContainer/>
+            <SuggestedMealsContainer user = {user} faves = {faves}/>
             <MealsContainer meals={allMeals}/>
+
         </>
     );
 }

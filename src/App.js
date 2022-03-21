@@ -5,12 +5,13 @@ import './App.css';
 function App() {
 
   const [user, setUser] = useState({});
-  const [favs, setFavs] = useState([]);
+  const [faves, setFaves] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
 
   return (
     <>
-      <MealsPage />
+      <MealsPage user = {user} faves = {faves} />
+
     </>
   );
 }
