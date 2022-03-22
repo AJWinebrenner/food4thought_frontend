@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import MealsPage from './pages/MealsPage';
 import './App.css';
 import AccountPage from './pages/AccountPage';
+import SingleMealPage from './pages/SingleMealPage';
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
     <>
       <AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves}/>
       <MealsPage allMeals={allMeals} user={user} faves={faves} />
-
+      <SingleMealPage setFaves={setFaves} mealId={2} faves={faves}/>
     </>
   );
 }
