@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-const ChefCardMini = () => {
-
+const ChefCardMini = ({chef}) => {
 
     return(
-        <p>ChefCardMini</p>
+        <p>{chef.name}</p>
     );
 }
 

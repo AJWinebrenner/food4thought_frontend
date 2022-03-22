@@ -5,10 +5,11 @@ import { useState, useEffect } from "react";
 const SuggestedMealsContainer = ({user, faves}) => {
 
     const [suggested, setSuggested] = useState({});
+    const [chefs, setChefs] = useState([]);
 
     //validation
-    const isInfo = () => {
-        if (user.mainIngredient && user.difficulty && user.wantHelp) {
+    const hasInfo = () => {
+        if (user.mainIngredient && user.difficulty) {
             return true;
         }
         else {
@@ -17,7 +18,7 @@ const SuggestedMealsContainer = ({user, faves}) => {
     }
 
     const suggest = () => {
-        if (isInfo()) {
+        if (hasInfo()) {
             fetch("http://localhost:8080/user", { 
             // authorize
                 method: "POST",
@@ -29,24 +30,34 @@ const SuggestedMealsContainer = ({user, faves}) => {
             })
                 // set by response body
                 .then(response => response.json())
-                .then(data => setSuggested(data))
+                .then(meal => {
+                    setSuggested(meal);
+                    if (meal.chefs){
+                        const chefsArray = meal.chefs;
+                        const chefCards = chefsArray.map(chef => {
+                            return <ChefCardMini chef={chef} key={chef.id} />
+                        })
+                        setChefs(chefCards);
+                    }
+                })
                 // catch error
                 .catch(error => console.error(error))   
         }
-        
+    
     }
 
     useEffect(suggest, [user]);
 
+    // useEffect(updateChefs, [suggested]);
 
 
     // create array of ChefCardMini and use that instead
-    if (isInfo()) {
+    if (hasInfo()) {
         return (
             <>
                 <h2>Suggested</h2>
                 <MealCard meal={suggested}/>
-                <ChefCardMini/> 
+                {chefs}
             </>
         )
     } else {
