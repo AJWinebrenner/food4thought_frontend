@@ -6,7 +6,7 @@ import AccountPage from './pages/AccountPage';
 function App() {
 
   const [user, setUser] = useState({mainIngredient: "Chicken", difficulty: "BEGINNER", wantHelp: true});
-  const [faves, setFaves] = useState([1,6,7,8]);
+  const [faves, setFaves] = useState([1,6,7,8,9,10,11,12]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [allMeals, setAllMeals] = useState([]);
 

@@ -5,6 +5,14 @@ body * {
   border: 1px solid black;
 }
 
+.cardFlex {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
 .card {
   margin: 1rem;
   width: 300px
