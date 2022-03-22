@@ -33,11 +33,12 @@ const SuggestedMealsContainer = ({user, faves}) => {
                 .then(meal => {
                     setSuggested(meal);
                     if (meal.chefs){
-                        const chefsArray = meal.chefs;
-                        const chefCards = chefsArray.map(chef => {
+                        const chefCards = meal.chefs.map(chef => {
                             return <ChefCardMini chef={chef} key={chef.id} />
                         })
                         setChefs(chefCards);
+                    } else {
+                        setChefs([]);
                     }
                 })
                 // catch error
@@ -47,9 +48,6 @@ const SuggestedMealsContainer = ({user, faves}) => {
     }
 
     useEffect(suggest, [user]);
-
-    // useEffect(updateChefs, [suggested]);
-
 
     // create array of ChefCardMini and use that instead
     if (hasInfo()) {
@@ -67,8 +65,7 @@ const SuggestedMealsContainer = ({user, faves}) => {
                 <p>no user details</p>
             </>
         )
-    }
-        
+    }   
 }
 
 export default SuggestedMealsContainer;
