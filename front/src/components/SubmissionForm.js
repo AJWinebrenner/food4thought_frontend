@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SubmissionForm = ({user, onSubmitUser}) => {
 
@@ -17,12 +17,12 @@ const SubmissionForm = ({user, onSubmitUser}) => {
         // }
 
 
+
         const newSubmission = {
             mainIngredient: mainIngredient,
             difficulty: difficulty,
             wantHelp: wantHelp
         }
-
 
         onSubmitUser(newSubmission);
 
@@ -54,7 +54,7 @@ const SubmissionForm = ({user, onSubmitUser}) => {
                 </select>
 
                 <label htmlFor="Yes">Do you want help</label>
-                <input type="checkbox" id="Yes" name="wantHelp" value={true} onChange={(event) => handleChange(event, setWantHelp)}/>
+                <input type="checkbox" id="Yes" name="wantHelp" value="help" onClick={(event) => setWantHelp(event.target.checked)}/>
 
                 <input type="submit" value="Submit" />
 
@@ -62,5 +62,7 @@ const SubmissionForm = ({user, onSubmitUser}) => {
             
         );
 }
+
+//onChange={(event) => handleChange(event, setWantHelp)}
 
 export default SubmissionForm;
