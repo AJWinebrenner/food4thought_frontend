@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-      <AccountPage allMeals={allMeals} user={user} faves={faves}/>
+      <AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves}/>
       <MealsPage allMeals={allMeals} user={user} faves={faves} />
 
     </>
