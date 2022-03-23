@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import CardNumHeader from "../components/CardNumHeader";
 
 
-const MealsPage = ({allMeals, user, faves}) => {
+const MealsPage = ({allMeals, user, faves, cardNum, setCardNum}) => {
 
-    const [cardNum, setCardNum] = useState(4);
-    
+
+
     
     return(
         <>

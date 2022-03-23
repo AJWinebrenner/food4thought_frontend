@@ -4,7 +4,7 @@ import SubmissionForm from "../components/SubmissionForm";
 import MealsContainer from "../containers/MealsContainer";
 import SuggestedMealsContainer from "../containers/SuggestedMealsContainer";
 
-const AccountPage = ({allMeals, user, setUser, faves}) => {
+const AccountPage = ({allMeals, user, setUser, faves, cardNum, setCardNum}) => {
 
     const [faveMeals, setFaveMeals] = useState([]);
 
@@ -26,7 +26,7 @@ const AccountPage = ({allMeals, user, setUser, faves}) => {
         <>
             <SubmissionForm user={user} onSubmitUser={setUser}/>
             <SuggestedMealsContainer user = {user} faves = {faves}/>
-            <MealsContainer meals={faveMeals} faves={faves} cards={4}/>
+            <MealsContainer meals={faveMeals} faves={faves} cards={cardNum} setCardNum={setCardNum}/>
         </>
     );
 }

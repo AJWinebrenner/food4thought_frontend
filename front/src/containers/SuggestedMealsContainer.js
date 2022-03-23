@@ -19,7 +19,6 @@ const SuggestedMealsContainer = ({user, faves}) => {
     }
 
     const suggest = () => {
-        console.log(user);
         if (hasInfo()) {
             fetch("http://localhost:8080/user", { 
             // authorize
@@ -33,7 +32,6 @@ const SuggestedMealsContainer = ({user, faves}) => {
                 // set by response body
                 .then(response => response.json())
                 .then(meal => {
-                    console.log(meal);
                     setSuggested(meal);
                     if (meal.chefs){
                         const chefCards = meal.chefs.map(chef => {

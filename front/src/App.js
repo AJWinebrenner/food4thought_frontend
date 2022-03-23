@@ -20,6 +20,7 @@ function App() {
   const [faves, setFaves] = useState([1,6,7,8,9,10,11,12]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [allMeals, setAllMeals] = useState([]);
+  const [cardNum, setCardNum] = useState(4);
 
     const loadAllMeals = () => {
         fetch("http://localhost:8080/meals", { 
@@ -43,8 +44,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<LandingPage/>}/>
-          <Route path="account" element={<AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves}/>}/>
-          <Route path="meals" element={<MealsPage allMeals={allMeals} user={user} faves={faves}/>}/>
+          <Route path="account" element={<AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves} cardNum={cardNum} setCardNum={setCardNum}/>}/>
+          <Route path="meals" element={<MealsPage allMeals={allMeals} user={user} faves={faves} cardNum={cardNum} setCardNum={setCardNum}/>}/>
         </Route>
       </Routes>
     </Router>
