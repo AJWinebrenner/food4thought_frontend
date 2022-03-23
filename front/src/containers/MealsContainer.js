@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import MealCard from "../components/MealCard";
 import SearchBar from "../components/SearchBar";
+import CardNumHeader from "../components/CardNumHeader";
 
-const MealsContainer = ({meals, faves, cards}) => {
+const MealsContainer = ({meals, faves, cards, setCardNum}) => {
 
     const cardsPerPage = cards;
     const lastSheet = Math.ceil(meals.length/cardsPerPage);
@@ -31,11 +32,13 @@ const MealsContainer = ({meals, faves, cards}) => {
     }
 
     useEffect(updateMealCards,[meals, sheetNo,faves]);
+    useEffect( updateMealCards, [cards])
 
     return (
         <>
             <h2>Meal Container</h2>
             <SearchBar/>
+            <CardNumHeader setCardNum={setCardNum}/>
             <button onClick={() => cycleSheet(-1)}>Back</button>
             <span>{sheetNo}/{lastSheet}</span>
             <button onClick={() => cycleSheet(1)}>Next</button>
