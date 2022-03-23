@@ -6,18 +6,18 @@ const Header = () => {
 
     return(
         <>
+        <h1>Food4Thought</h1>
         <nav>
-          <ul>
-            <li>
-              <Link to="/" >Home</Link>
-            </li>
-            <li>
-              <Link to="/account" >Account</Link>
-            </li>
-            <li>
-              <Link to="/meals" >All recipes</Link>
-            </li>
-          </ul>
+          
+        
+              <Link className = "nav" to="/" >Home</Link>
+            
+              <Link className = "nav" to="/account" >Account</Link>
+           
+            
+              <Link className = "nav" to="/meals" >All recipes</Link>
+            
+          
         </nav>
         <Outlet/>
         </>
