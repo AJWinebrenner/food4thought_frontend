@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import MealCard from "../components/MealCard";
 import SearchBar from "../components/SearchBar";
 
-const MealsContainer = ({meals}) => {
+const MealsContainer = ({meals, faves}) => {
 
     const cardsPerPage = 4;
     const lastSheet = Math.ceil(meals.length/cardsPerPage);
@@ -13,10 +13,11 @@ const MealsContainer = ({meals}) => {
         // setMealCards([]);
         const newMealCards = [];
         const start = (sheetNo-1) * cardsPerPage;
+
         for (let i = start; i < start + cardsPerPage; i++) {
             if (meals.length > i) {
                 const meal = meals.at(i);
-                newMealCards.push(<MealCard meal={meal} key={meal.id}/>)
+                newMealCards.push(<MealCard meal={meal} key={meal.id} faves={faves}/>)
             }
         }
         setMealCards(newMealCards);
@@ -29,7 +30,7 @@ const MealsContainer = ({meals}) => {
         }
     }
 
-    useEffect(updateMealCards,[meals, sheetNo]);
+    useEffect(updateMealCards,[meals, sheetNo,faves]);
 
     return (
         <>

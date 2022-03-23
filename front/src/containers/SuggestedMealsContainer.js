@@ -58,7 +58,7 @@ const SuggestedMealsContainer = ({user, faves}) => {
         return (
             <>
                 <h2>Suggested</h2>
-                <MealCard meal={suggested}/>
+                <MealCard meal={suggested} faves={faves}/>
                 {chefs}
             </>
         )
