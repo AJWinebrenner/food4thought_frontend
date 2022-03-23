@@ -24,7 +24,8 @@ const AccountPage = ({allMeals, user, setUser, faves, cardNum, setCardNum}) => {
 
     return(
         <>
-            <SubmissionForm user={user} onSubmitUser={setUser}/>
+        <hr></hr>
+            <SubmissionForm className = "form" user={user} onSubmitUser={setUser}/>
             <SuggestedMealsContainer user = {user} faves = {faves}/>
             <MealsContainer meals={faveMeals} faves={faves} cards={cardNum} setCardNum={setCardNum}/>
         </>
