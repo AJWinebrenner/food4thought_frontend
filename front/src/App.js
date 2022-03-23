@@ -11,6 +11,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import ChefsPage from './pages/ChefsPage';
+
 
 function App() {
 
@@ -46,7 +48,6 @@ function App() {
         </Route>
       </Routes>
     </Router>
-      
   );
 }
 
