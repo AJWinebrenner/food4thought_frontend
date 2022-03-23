@@ -8,7 +8,7 @@ const MealsPage = ({allMeals, user, faves}) => {
 
     return(
         <>
-            <MealsContainer meals={allMeals} faves = {faves}/>
+            <MealsContainer meals={allMeals} faves = {faves} cards={8}/>
         </>
     );
 }
