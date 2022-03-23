@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import MealCard from "../components/MealCard";
 import SearchBar from "../components/SearchBar";
 
-const MealsContainer = ({meals}) => {
+const MealsContainer = ({meals, faves, cards}) => {
 
-    const cardsPerPage = 4;
+    const cardsPerPage = cards;
     const lastSheet = Math.ceil(meals.length/cardsPerPage);
     const [mealCards, setMealCards] = useState([]);
     const [sheetNo, setSheetNo] = useState(1);
