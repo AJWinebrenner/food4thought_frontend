@@ -24,7 +24,6 @@ const SingleMealPage = ({setFaves, mealId, faves}) => {
 
     return (
         <>
-            <Header />
             <section>
                 <h2>{currentMeal.name}</h2>
                 <h3>{currentMeal.mealTime}</h3>

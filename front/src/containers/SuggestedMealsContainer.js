@@ -1,8 +1,9 @@
 import MealCard from "../components/MealCard";
 import ChefCardMini from "../components/ChefCardMini";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const SuggestedMealsContainer = ({user, faves}) => {
+const SuggestedMealsContainer = ({user, faves, setMealId}) => {
 
     const [suggested, setSuggested] = useState({});
     const [chefs, setChefs] = useState([]);
@@ -49,6 +50,13 @@ const SuggestedMealsContainer = ({user, faves}) => {
     
     }
 
+    let navigate = useNavigate(); 
+    const routeChange = id =>{ 
+        setMealId(id);
+        let path = `/meal-info`; 
+        navigate(path);
+    }
+
     useEffect(suggest, [user]);
 
     // create array of ChefCardMini and use that instead
@@ -56,7 +64,7 @@ const SuggestedMealsContainer = ({user, faves}) => {
         return (
             <>
                 <h2>Suggested</h2>
-                <MealCard meal={suggested} faves={faves}/>
+                <MealCard meal={suggested} faves={faves} routeChange={routeChange}/>
                 {chefs}
             </>
         )

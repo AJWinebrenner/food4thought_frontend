@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const MealCard = ({meal, faves}) => {
+const MealCard = ({meal, faves, routeChange}) => {
     
     // make empty placeholder objects
     let outputMeal;
@@ -37,7 +37,7 @@ const MealCard = ({meal, faves}) => {
     }
 
     return(
-        <article className={classList}>
+        <article onClick={() => routeChange(meal.id)} className={classList}>
                 <h3>{outputMeal.name}</h3>
                 <p>{outputMeal.ingredients}</p>
             </article>

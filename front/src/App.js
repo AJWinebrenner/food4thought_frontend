@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import MealsPage from './pages/MealsPage';
 import './App.css';
 import AccountPage from './pages/AccountPage';
@@ -21,6 +22,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [allMeals, setAllMeals] = useState([]);
   const [cardNum, setCardNum] = useState(4);
+  const [mealId, setMealId] = useState(0);
 
     const loadAllMeals = () => {
         fetch("http://localhost:8080/meals", { 
@@ -37,6 +39,8 @@ function App() {
             .catch(error => console.error(error))   
     }
 
+    
+
     useEffect(loadAllMeals, []);
 
   return (
@@ -44,8 +48,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<LandingPage/>}/>
-          <Route path="account" element={<AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves} cardNum={cardNum} setCardNum={setCardNum}/>}/>
-          <Route path="meals" element={<MealsPage allMeals={allMeals} user={user} faves={faves} cardNum={cardNum} setCardNum={setCardNum}/>}/>
+          <Route path="account" element={<AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves} cardNum={cardNum} setCardNum={setCardNum} setMealId={setMealId}/>}/>
+          <Route path="meals" element={<MealsPage allMeals={allMeals} user={user} faves={faves} cardNum={cardNum} setCardNum={setCardNum} setMealId={setMealId}/>}/>
+          <Route path="meal-info" element={<SingleMealPage setFaves={setFaves} mealId={mealId} faves={faves}/>} />
         </Route>
       </Routes>
     </Router>
