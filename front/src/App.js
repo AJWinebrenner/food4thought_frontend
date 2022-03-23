@@ -3,10 +3,18 @@ import MealsPage from './pages/MealsPage';
 import './App.css';
 import AccountPage from './pages/AccountPage';
 import SingleMealPage from './pages/SingleMealPage';
+import Header from './components/Header';
+import LandingPage from './pages/LandingPage'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
 
-  const [user, setUser] = useState({mainIngredient: "Chicken", difficulty: "BEGINNER", wantHelp: true});
+  const [user, setUser] = useState({mainIngredient: "Milk", difficulty: "BEGINNER", wantHelp: true});
   const [faves, setFaves] = useState([1,6,7,8,9,10,11,12]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [allMeals, setAllMeals] = useState([]);
@@ -29,12 +37,23 @@ function App() {
     useEffect(loadAllMeals, []);
 
   return (
-    <>
-      <AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves}/>
-      <MealsPage allMeals={allMeals} user={user} faves={faves} />
-      <SingleMealPage setFaves={setFaves} mealId={2} faves={faves}/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route index element={<LandingPage/>}/>
+          <Route path="account" element={<AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves}/>}/>
+          <Route path="meals" element={<MealsPage allMeals={allMeals} user={user} faves={faves}/>}/>
+        </Route>
+      </Routes>
+    </Router>
+      
   );
 }
 
 export default App;
+
+
+      {/* <AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves}/>
+      <MealsPage allMeals={allMeals} user={user} faves={faves} />
+      <SingleMealPage setFaves={setFaves} mealId={2} faves={faves}/> */}
+    

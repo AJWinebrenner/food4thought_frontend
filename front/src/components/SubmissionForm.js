@@ -25,6 +25,8 @@ const SubmissionForm = ({user, onSubmitUser}) => {
         }
 
         onSubmitUser(newSubmission);
+        console.log('submitting user');
+        console.log(newSubmission);
 
         // setMainIngredient(user.mainIngredient)
         // setDifficulty(user.difficulty)

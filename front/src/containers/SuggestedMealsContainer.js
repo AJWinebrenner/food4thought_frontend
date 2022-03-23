@@ -6,6 +6,7 @@ const SuggestedMealsContainer = ({user, faves}) => {
 
     const [suggested, setSuggested] = useState({});
     const [chefs, setChefs] = useState([]);
+    
 
     //validation
     const hasInfo = () => {
@@ -18,6 +19,7 @@ const SuggestedMealsContainer = ({user, faves}) => {
     }
 
     const suggest = () => {
+        console.log(user);
         if (hasInfo()) {
             fetch("http://localhost:8080/user", { 
             // authorize
@@ -31,6 +33,7 @@ const SuggestedMealsContainer = ({user, faves}) => {
                 // set by response body
                 .then(response => response.json())
                 .then(meal => {
+                    console.log(meal);
                     setSuggested(meal);
                     if (meal.chefs){
                         const chefCards = meal.chefs.map(chef => {
@@ -42,7 +45,8 @@ const SuggestedMealsContainer = ({user, faves}) => {
                     }
                 })
                 // catch error
-                .catch(error => console.error(error))   
+                .catch(error => console.error(error)
+                    )   
         }
     
     }

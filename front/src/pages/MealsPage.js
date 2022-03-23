@@ -8,8 +8,6 @@ const MealsPage = ({allMeals, user, faves}) => {
 
     return(
         <>
-            <Header/>
-            <SuggestedMealsContainer user = {user} faves = {faves}/>
             <MealsContainer meals={allMeals} faves = {faves}/>
         </>
     );

@@ -1,10 +1,26 @@
 import { useState } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
 const Header = () => {
 
 
     return(
-        <h1>Header</h1>
+        <>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/" >Home</Link>
+            </li>
+            <li>
+              <Link to="/account" >Account</Link>
+            </li>
+            <li>
+              <Link to="/meals" >All recipes</Link>
+            </li>
+          </ul>
+        </nav>
+        <Outlet/>
+        </>
     );
 }
 
