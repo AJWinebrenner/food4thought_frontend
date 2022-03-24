@@ -5,14 +5,14 @@ import { useEffect, useState } from "react";
 import CardNumHeader from "../components/CardNumHeader";
 
 
-const MealsPage = ({allMeals, user, faves, cardNum, setCardNum, setMealId, routeChange}) => {
+const MealsPage = ({allMeals, user, faves, setFaves, cardNum, setCardNum, setMealId, routeChange}) => {
 
 
 
     
     return(
         <>
-            <MealsContainer meals={allMeals} faves = {faves} cards={cardNum} setCardNum={setCardNum} setMealId={setMealId} routeChange={routeChange}/>
+            <MealsContainer meals={allMeals} faves = {faves} setFaves={setFaves} cards={cardNum} setCardNum={setCardNum} setMealId={setMealId} routeChange={routeChange}/>
         </>
     );
 }

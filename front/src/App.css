@@ -22,8 +22,11 @@ body * {
 
 .nav{
   padding: 0.5rem;
- 
+}
 
+.favourite{
+  color: red;
+  border-color: red;
 }
 
 h1{

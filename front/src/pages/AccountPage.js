@@ -4,11 +4,12 @@ import SubmissionForm from "../components/SubmissionForm";
 import MealsContainer from "../containers/MealsContainer";
 import SuggestedMealsContainer from "../containers/SuggestedMealsContainer";
 
-const AccountPage = ({allMeals, user, setUser, faves, cardNum, setCardNum, setMealId, routeChange}) => {
+const AccountPage = ({allMeals, user, setUser, faves, setFaves, cardNum, setCardNum, setMealId, routeChange}) => {
 
     const [faveMeals, setFaveMeals] = useState([]);
 
     const loadFaveMeals = () => {
+        console.log(faves);
         const faveArray = [];
         allMeals.forEach(meal => {
             for (let i = 0; i < faves.length; i++) {
@@ -26,8 +27,8 @@ const AccountPage = ({allMeals, user, setUser, faves, cardNum, setCardNum, setMe
         <>
         <hr/>
             <SubmissionForm user={user} onSubmitUser={setUser}/>
-            <SuggestedMealsContainer user = {user} faves = {faves} routeChange={routeChange} setMealId={setMealId}/>
-            <MealsContainer meals={faveMeals} faves={faves} cards={cardNum} setCardNum={setCardNum} setMealId={setMealId} routeChange={routeChange}/>
+            <SuggestedMealsContainer user = {user} faves = {faves} setFaves={setFaves} routeChange={routeChange} setMealId={setMealId}/>
+            <MealsContainer meals={faveMeals} faves={faves} setFaves={setFaves} cards={cardNum} setCardNum={setCardNum} setMealId={setMealId} routeChange={routeChange}/>
         </>
     );
 }

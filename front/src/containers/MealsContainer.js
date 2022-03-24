@@ -4,19 +4,13 @@ import MealCard from "../components/MealCard";
 import SearchBar from "../components/SearchBar";
 import CardNumHeader from "../components/CardNumHeader";
 
-const MealsContainer = ({meals, faves, cards, setCardNum, setMealId}) => {
+const MealsContainer = ({meals, faves, setFaves, cards, setCardNum, setMealId}) => {
 
     const cardsPerPage = cards;
     const lastSheet = Math.ceil(meals.length/cardsPerPage);
     const [mealCards, setMealCards] = useState([]);
     const [sheetNo, setSheetNo] = useState(1);
-
-    let navigate = useNavigate(); 
-    const routeChange = id =>{ 
-        setMealId(id);
-        let path = `/meal-info`; 
-        navigate(path);
-    }
+   
 
     const updateMealCards = () => {
         // setMealCards([]);
@@ -26,7 +20,7 @@ const MealsContainer = ({meals, faves, cards, setCardNum, setMealId}) => {
         for (let i = start; i < start + cardsPerPage; i++) {
             if (meals.length > i) {
                 const meal = meals.at(i);
-                newMealCards.push(<MealCard meal={meal} key={meal.id} faves={faves} routeChange={routeChange}/>)
+                newMealCards.push(<MealCard meal={meal} key={meal.id} faves={faves} setFaves={setFaves} setMealId={setMealId}/>)
             }
         }
         setMealCards(newMealCards);
@@ -39,8 +33,10 @@ const MealsContainer = ({meals, faves, cards, setCardNum, setMealId}) => {
         }
     }
 
-    useEffect(updateMealCards,[meals, sheetNo,faves]);
-    useEffect( updateMealCards, [cards])
+    
+
+    useEffect(updateMealCards,[meals, sheetNo, faves, cards]);
+    
 
     return (
         <>
