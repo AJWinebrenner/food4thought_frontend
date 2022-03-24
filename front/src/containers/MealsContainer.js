@@ -6,24 +6,24 @@ import SearchBar from "../components/SearchBar";
 const MealsContainer = ({ meals, faves, setFaves, setMealId }) => {
     const [cards, setCards] = useState(4);
 	const [sheetNo, setSheetNo] = useState(1);
-	const [lastSheet, setLastSheet] = useState(Math.ceil(meals.length / cards));
-    const [filterMeals, setFilterMeals] = useState([]);
+	const [lastSheet, setLastSheet] = useState(1);
+    const [filterMeals, setFilterMeals] = useState([meals]);
 	const [mealCards, setMealCards] = useState([]);
 
-	// console.log(`the list of meals: ${filterMeals}`);
 
 	const findLastSheet = () => {
-		setLastSheet(Math.ceil(filterMeals.length / cards));
-		setSheetNo(1);
-		// console.log(`the number of sheets: ${lastSheet}`);
+		if (filterMeals.length == 0) {
+			setLastSheet(1);
+		} else {
+			setLastSheet(Math.ceil(filterMeals.length / cards));
+		}
 	};
 
-	let navigate = useNavigate();
-	const routeChange = (id) => {
-		setMealId(id);
-		let path = `/meal-info`;
-		navigate(path);
-	};
+	const checkSheetNo = () => {
+		if (sheetNo > lastSheet) {
+			setSheetNo(lastSheet);
+		}
+	}
 
 	// const newMealsAllergy = () => {
 	// 	{
@@ -81,8 +81,9 @@ const MealsContainer = ({ meals, faves, setFaves, setMealId }) => {
 
 	useEffect(() => setFilterMeals(meals), [meals]);
 	useEffect(findLastSheet, [filterMeals, cards]);
+	useEffect(checkSheetNo, [lastSheet]);
 	useEffect(updateMealCards, [sheetNo, faves, cards, filterMeals]);
-
+	
 	return (
 		<>
 			<h2>Meal Container</h2>
