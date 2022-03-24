@@ -27,7 +27,10 @@ const AccountPage = ({allMeals, user, setUser, faves, setFaves, cardNum, setCard
         <>
         <hr/>
             <SubmissionForm user={user} onSubmitUser={setUser}/>
+            <h2 className="ribbon">Your recommended recipe:</h2>
             <SuggestedMealsContainer user = {user} faves = {faves} setFaves={setFaves} setMealId={setMealId}/>
+            <hr/>
+            <h2 className="bigRibbon white-text">Your favourites:</h2>
             <MealsContainer meals={faveMeals} faves={faves} setFaves={setFaves} setMealId={setMealId}/>
         </>
     );

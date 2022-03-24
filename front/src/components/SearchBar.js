@@ -6,16 +6,14 @@ const SearchBar = ({ meals, setFilterMeals }) => {
 
 	return (
 		<>
-			<>
-				<form>
-					<input
-						type="text"
-						placeholder="Search"
-						onChange={(event) => setSearchTerm(event.target.value)}
-					></input>
-					<input type="submit" value="submit" />
-				</form>
-			</>
+			<form className="ribbon middleFlex">
+				<input
+					type="text"
+					placeholder="Search"
+					onChange={(event) => setSearchTerm(event.target.value)}
+				></input>
+				<input type="submit" value="submit" />
+			</form>
 		</>
 	);
 };

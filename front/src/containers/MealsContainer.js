@@ -86,19 +86,20 @@ const MealsContainer = ({ meals, faves, setFaves, setMealId }) => {
 	
 	return (
 		<>
-			<h2>Meal Container</h2>
 			<SearchBar meals={meals} setFilterMeals={setFilterMeals} />
-			<p>
-            Select number of meal per page: <label onClick={() => setCards(1)}>1</label>, <label onClick={() => setCards(4)}>4</label>, <label onClick={() => setCards(6)}>6</label>, <label onClick={() => setCards(8)}>8</label>.
+			<p className="centerText">
+            Meals per page: <label onClick={() => setCards(1)}>1</label> - <label onClick={() => setCards(4)}>4</label> - <label onClick={() => setCards(6)}>6</label> - <label onClick={() => setCards(8)}>8</label>
             </p>
-			<button onClick={() => cycleSheet(-1)}>Back</button>
-			<span>
-				{sheetNo}/{lastSheet}
-			</span>
-			<button onClick={() => cycleSheet(1)}>Next</button>
 			<div className="cardFlex">
                 {mealCards}
             </div>
+			<div className="ribbon middleFlex">
+				<button onClick={() => cycleSheet(-1)}>Back</button>
+				<span>
+					{sheetNo} / {lastSheet}
+				</span>
+				<button onClick={() => cycleSheet(1)}>Next</button>
+			</div>
 		</>
 	);
 };

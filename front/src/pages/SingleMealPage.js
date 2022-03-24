@@ -26,8 +26,8 @@ const SingleMealPage = ({setFaves, mealId, faves}) => {
         <>
             <section>
                 <h2>{currentMeal.name}</h2>
-                <h3>{currentMeal.mealTime}</h3>
-                <h3>{currentMeal.difficulty}</h3>
+                <h3>Meal type: {currentMeal.mealTime}</h3>
+                <h3>Difficulty: {currentMeal.difficulty}</h3>
             </section>
             <section>
                 <p>

@@ -1,10 +1,93 @@
-body {
+:root {
+  --back1: #C1F4C5;
+  --back2: #65C18C;
+  --back3: #289672;
+  --primary: rgb(240, 244, 201);
+  --accent: #d4308d;
+
+
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- 
+  /* border: 1px solid black; */
+}
+
+body {
+  background-color: var(--back1);
   color: black;
-  background-color: #C3E5AE;
+}
+
+#title {
+  font-family: 'Zoika font', sans-serif;
+  text-align: center;
+}
+
+#logo {
+  position: relative;
+  display:flex;
+  justify-content: center;
+}
+
+#logo__img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  height: 50px;
+}
+
+.bigRibbon {
+  color: white;
+  width: 100%;
+  border-radius: 0;
+  background-color: var(--back3);
+  padding: 0.5rem 0;
+}
+
+.ribbon {
+  width: 100%;
+  border-radius: 0;
+  background-color: var(--back2);
+  padding: 0.2rem 0;
+}
+
+/* .primary-text{
+  color: var(--primary);
+} */
+
+.bubble {
+  margin: 1rem;
+  border-radius: 1rem;
+  border: 3px solid var(--back2);
+}
+
+.innerBubble {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--back2);
+}
+
+.lineFlex {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.middleFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
+.centerText {
+  text-align: center;
 }
 
 .cardFlex {
@@ -16,37 +99,57 @@ body {
 }
 
 .card {
-  margin: 1rem;
-  width: 300px
-}
-
-.nav{
+  background-color: var(--primary);
+  width: 90%;
+  max-width: 400px;
+  min-width: 300px;
   padding: 0.5rem;
 }
 
-.favourite{
-  color: red;
-  border-color: red;
+.card__button {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border: 1px solid black;
 }
 
-h1{
-  font-family: 'Zoika font', sans-serif;
+div.favourite::after {
+  /* content: ; */
+  position: absolute;
+
+}
+
+.card__title {
+  margin: 0 0.5rem;
+  border: 1px solid black;
+}
+
+.card__banner {
+  margin: 0 0 0.5rem 0;
+}
+
+article.favourite{
+  box-shadow: 0px 5px 8px var(--back3);
+  border-color: var(--accent);
+}
+
+form {
   text-align: center;
 }
 
-nav{
-  text-align: center;
-  padding: 0.5rem;
+.chefs {
+  border-radius: 0 0 1rem 1rem;
+  position: relative;
+  padding: .5rem;
+  transform: translateY(-17px);
 }
 
-form{
-  margin: 1rem;
-  text-align: center;
-  border: black solid 1px;
-  padding: 0.5rem;
-  
+a {
+  color: var(--primary);
+  text-decoration: none;
 }
 
-hr{
-  border-color: black;
+a:hover {
+  transform: translateY(-2px);
 }

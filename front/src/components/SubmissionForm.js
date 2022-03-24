@@ -44,11 +44,11 @@ const SubmissionForm = ({user, onSubmitUser}) => {
 
         return(
             
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit} className="ribbon">
                 <label htmlFor="main Ingredient">Main ingredient: </label>
                 <input type="text" id="main Ingredient" value={mainIngredient} onChange={(event) => handleChange(event, setMainIngredient)} />
 
-                <br></br>
+                <br/>
 
                 <select name="choice" onChange={(event) => handleChange(event, setDifficulty)}>
                     {/* <option selected>Select Difficulty</option> */}
@@ -60,7 +60,7 @@ const SubmissionForm = ({user, onSubmitUser}) => {
                 <label htmlFor="Yes">Do you want help</label>
                 <input type="checkbox" id="Yes" name="wantHelp" value="help" onClick={(event) => setWantHelp(event.target.checked)}/>
 
-                <br></br>
+                <br/>
 
                 <input type="submit" value="Submit" />
 

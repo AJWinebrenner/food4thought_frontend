@@ -63,11 +63,14 @@ const MealCard = ({meal, faves, setFaves, setMealId}) => {
 
 
     return(
-        <article className={`card ${favouriteClass}`}>
-            <h3 onClick={() => routeChange()}>{outputMeal.name}</h3>
-            <div className={favouriteClass} onClick={() => toggleFavourite(outputMeal.id)}>O</div>
-            {/* <input type="checkbox" id="Yes" name="isFavourite" value="help" onClick={() => toggleFavourite()}/> */}
-            <p>{outputMeal.ingredients}</p>
+        <article className={`bubble card ${favouriteClass}`}>
+            <div className="lineFlex card__banner">
+                <h3 className="card__title" onClick={() => routeChange()}>{outputMeal.name}</h3>
+                <div className={`card__button ${favouriteClass}`} onClick={() => toggleFavourite(outputMeal.id)}>O</div>
+            </div>
+            <div className="innerBubble">
+                <p>Difficulty: {outputMeal.difficulty.toLowerCase()}</p>
+            </div>
         </article>
     );
 }
