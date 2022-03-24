@@ -88,7 +88,7 @@ const MealsContainer = ({ meals, faves, setFaves, setMealId }) => {
 		<>
 			<SearchBar meals={meals} setFilterMeals={setFilterMeals} />
 			<p className="centerText">
-            Meals per page: <label onClick={() => setCards(1)}>1</label> - <label onClick={() => setCards(4)}>4</label> - <label onClick={() => setCards(6)}>6</label> - <label onClick={() => setCards(8)}>8</label>
+            Meals per page: <label onClick={() => setCards(1)}>1</label> - <label onClick={() => setCards(4)}>4</label> - <label onClick={() => setCards(8)}>8</label> - <label onClick={() => setCards(16)}>16</label>
             </p>
 			<div className="cardFlex">
                 {mealCards}
