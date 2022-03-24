@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MealCard from "../components/MealCard";
 import SearchBar from "../components/SearchBar";
-import CardNumHeader from "../components/CardNumHeader";
 
-const MealsContainer = ({ meals, faves, cards, setCardNum, setMealId }) => {
-	const [filterMeals, setFilterMeals] = useState(meals);
-	const [lastSheet, setLastSheet] = useState(Math.ceil(meals.length / cards));
-	const [mealCards, setMealCards] = useState([]);
+const MealsContainer = ({ meals, faves, setMealId }) => {
+    const [cards, setCards] = useState(4);
 	const [sheetNo, setSheetNo] = useState(1);
+	const [lastSheet, setLastSheet] = useState(Math.ceil(meals.length / cards));
+
+    const [filterMeals, setFilterMeals] = useState([]);
+	const [mealCards, setMealCards] = useState([]);
 
 	// console.log(`the list of meals: ${filterMeals}`);
 
@@ -78,20 +79,24 @@ const MealsContainer = ({ meals, faves, cards, setCardNum, setMealId }) => {
 	};
 
 	useEffect(() => setFilterMeals(meals), [meals]);
-	useEffect(findLastSheet, [filterMeals]);
-	useEffect(updateMealCards, [sheetNo, faves, cards]);
+	useEffect(findLastSheet, [filterMeals, cards]);
+	useEffect(updateMealCards, [sheetNo, faves, cards, filterMeals]);
 
 	return (
 		<>
 			<h2>Meal Container</h2>
 			<SearchBar meals={meals} setFilterMeals={setFilterMeals} />
-			<CardNumHeader setCardNum={setCardNum} />
+			<p>
+            Select number of meal per page: <label onClick={() => setCards(1)}>1</label>, <label onClick={() => setCards(4)}>4</label>, <label onClick={() => setCards(6)}>6</label>, <label onClick={() => setCards(8)}>8</label>.
+            </p>
 			<button onClick={() => cycleSheet(-1)}>Back</button>
 			<span>
 				{sheetNo}/{lastSheet}
 			</span>
 			<button onClick={() => cycleSheet(1)}>Next</button>
-			<div className="cardFlex">{mealCards}</div>
+			<div className="cardFlex">
+                {mealCards}
+            </div>
 		</>
 	);
 };
