@@ -20,7 +20,7 @@ const MealCard = ({meal, faves, setFaves, setMealId}) => {
     // if suggested meal does not exist
     } else {
         outputMeal = {
-            "id": 4,
+            "id": 0,
             "name": "Nothing Here",
             "difficulty": "INTERMEDIATE",
             "allergyInfo": [
@@ -36,27 +36,21 @@ const MealCard = ({meal, faves, setFaves, setMealId}) => {
         }
     }
 
-    const handleFavouriteChange = () => {
-        if (favouriteClass === ''){
-            favouriteClass = 'favourite';
-        } else if (favouriteClass === 'favourite'){
-            favouriteClass = '';
-        }
-        console.log(favouriteClass);
-        toggleFavourite(meal.id);
-    }
     // when button clicked, toggle is/isn't favourite
-    const toggleFavourite = id => {
+    const toggleFavourite = (id) => {
         let newFaves = [];
         for (const f of faves){
             if (f === id){
                 // replace faves array with filtered array that excludes this id
                 newFaves = faves.filter(fave => fave !== id);
-            } else {
-                newFaves = [...faves, id];
+                setFaves(newFaves);
+                favouriteClass = '';
+                return;
             }
         }
+        newFaves = [...faves, id];
         setFaves(newFaves);
+        favouriteClass = 'favourite';
     }
 
     // redirect on click
@@ -70,11 +64,11 @@ const MealCard = ({meal, faves, setFaves, setMealId}) => {
 
     return(
         <article className={`card ${favouriteClass}`}>
-                <h3 onClick={() => routeChange()}>{outputMeal.name}</h3>
-                <div className={favouriteClass} onClick={() => handleFavouriteChange()}>O</div>
-                {/* <input type="checkbox" id="Yes" name="isFavourite" value="help" onClick={() => toggleFavourite()}/> */}
-                <p>{outputMeal.ingredients}</p>
-            </article>
+            <h3 onClick={() => routeChange()}>{outputMeal.name}</h3>
+            <div className={favouriteClass} onClick={() => toggleFavourite(outputMeal.id)}>O</div>
+            {/* <input type="checkbox" id="Yes" name="isFavourite" value="help" onClick={() => toggleFavourite()}/> */}
+            <p>{outputMeal.ingredients}</p>
+        </article>
     );
 }
 
