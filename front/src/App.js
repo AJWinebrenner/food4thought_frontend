@@ -21,7 +21,6 @@ function App() {
   const [faves, setFaves] = useState([1,6,7,8,9,10,11,12]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [allMeals, setAllMeals] = useState([]);
-  const [cardNum, setCardNum] = useState(4);
   const [mealId, setMealId] = useState(0);
 
     const loadAllMeals = () => {
@@ -48,8 +47,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<LandingPage/>}/>
-          <Route path="account" element={<AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves} setFaves={setFaves} cardNum={cardNum} setCardNum={setCardNum} setMealId={setMealId}/>}/>
-          <Route path="meals" element={<MealsPage allMeals={allMeals} user={user} faves={faves} setFaves={setFaves} cardNum={cardNum} setCardNum={setCardNum} setMealId={setMealId}/>}/>
+          <Route path="account" element={<AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves} setFaves={setFaves} setMealId={setMealId}/>}/>
+          <Route path="meals" element={<MealsPage allMeals={allMeals} user={user} faves={faves} setFaves={setFaves}  setMealId={setMealId}/>}/>
           <Route path="meal-info" element={<SingleMealPage setFaves={setFaves} mealId={mealId} faves={faves}/>} />
         </Route>
       </Routes>
