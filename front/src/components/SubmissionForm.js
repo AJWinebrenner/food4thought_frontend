@@ -6,7 +6,7 @@ const SubmissionForm = ({ user, onSubmitUser }) => {
 	const [wantHelp, setWantHelp] = useState(false);
 
 	const handleChange = (event, callback) => {
-		callback(event.target.value);
+		callback(event.target.value); 
 	};
 
 	const handleFormSubmit = (event) => {
@@ -37,19 +37,22 @@ const SubmissionForm = ({ user, onSubmitUser }) => {
 	};
 
 	return (
-		<form onSubmit={handleFormSubmit} className="ribbon">
+		<form onSubmit={handleFormSubmit} >
 			<label htmlFor="main Ingredient">Main ingredient: </label>
 			<input
 				type="text"
 				id="main Ingredient"
 				value={mainIngredient}
+				placeholder="Ingredient"
 				onChange={(event) => handleChange(event, setMainIngredient)}
 			/>
 
 			<br />
 
+			<label htmlFor="difficulty">Difficulty level:  </label>
 			<select
 				name="choice"
+				id="difficulty"
 				onChange={(event) => handleChange(event, setDifficulty)}
 			>
 				{/* <option selected>Select Difficulty</option> */}
@@ -58,18 +61,18 @@ const SubmissionForm = ({ user, onSubmitUser }) => {
 				<option value="ADVANCED">Advanced</option>
 			</select>
 
-			<label htmlFor="Yes">Do you want help</label>
-			<input
+			<br/>
+
+			<label htmlFor="Yes">Do you want help?  </label>
+			<input className="marginBelow"
 				type="checkbox"
 				id="Yes"
 				name="wantHelp"
 				value="help"
 				onClick={(event) => setWantHelp(event.target.checked)}
 			/>
-
-			<br />
-
-			<input className="coolBeans" type="submit" value="Submit" />
+			<br/>
+			<input className="button submitButton" type="submit" value="Find Meal" />
 		</form>
 	);
 };

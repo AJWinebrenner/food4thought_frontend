@@ -10,7 +10,7 @@ const MealsPage = ({allMeals, user, faves, setFaves, setMealId}) => {
     
     return(
         <>
-            <h2 className="ribbon primary-text">All recipes:</h2>
+            <h2 className="ribbon white-text">All recipes:</h2>
             <MealsContainer meals={allMeals} faves={faves} setFaves={setFaves} setMealId={setMealId}/>
         </>
     );

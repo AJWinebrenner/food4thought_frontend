@@ -52,7 +52,12 @@ const SuggestedMealsContainer = ({user, faves, setFaves, setMealId}) => {
     
     }
 
-    
+    // redirect on click
+    let navigate = useNavigate(); 
+    const routeChange = () =>{ 
+        let path = `/chefs`; 
+        navigate(path);
+    }
 
     useEffect(suggest, [user]);
     // useEffect(() => {
@@ -70,9 +75,9 @@ const SuggestedMealsContainer = ({user, faves, setFaves, setMealId}) => {
     if (hasInfo()) {
         return (
             <>
-                <article className="cardFlex">
+                <article className="columnFlex">
                     <MealCard meal={suggested} faves={faves} setFaves={setFaves} setMealId={setMealId}/>
-                    <div className="innerBubble middleFlex chefs">{chefs[0]} <label className="primary-text">|</label> {chefs[1]}</div>
+                    <div className="innerBubble middleFlex chefs" onClick={() => routeChange()}>{chefs[0]} <label className="primary-text">|</label> {chefs[1]}</div>
                 </article>
             </>
         )

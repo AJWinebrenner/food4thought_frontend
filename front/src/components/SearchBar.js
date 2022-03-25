@@ -9,10 +9,10 @@ const SearchBar = ({ meals, setFilterMeals }) => {
 			<form className="ribbon middleFlex">
 				<input
 					type="text"
-					placeholder="Search"
+					placeholder="Search meal"
 					onChange={(event) => setSearchTerm(event.target.value)}
 				></input>
-				<input className="button" type="submit" value="submit" />
+				<input className="button" type="submit" value="search" />
 			</form>
 		</>
 	);

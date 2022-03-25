@@ -12,11 +12,11 @@ const Header = () => {
                 <div>
                     <h1 id="title">Food4Thought</h1>
                     <nav className="middleFlex">
-                        <Link className = "nav" to="/" >Home</Link> - 
+                        <Link className = "nav press" to="/" >Home</Link> - 
                         
-                        <Link className = "nav" to="/account" >Account</Link> - 
+                        <Link className = "nav press" to="/account" >Account</Link> - 
                     
-                        <Link className = "nav" to="/meals" >All recipes</Link>
+                        <Link className = "nav press" to="/meals" >All recipes</Link>
                     </nav>
                 </div>
             </div>

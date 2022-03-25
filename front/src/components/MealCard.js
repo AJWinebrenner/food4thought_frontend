@@ -5,7 +5,7 @@ const MealCard = ({meal, faves, setFaves, setMealId}) => {
     
     // make empty placeholder objects
     let outputMeal;
-    let favouriteClass = '';
+    let favouriteClass = 'notFavourite';
 
     // check that meal is not empty
     if (meal.name){
@@ -44,7 +44,7 @@ const MealCard = ({meal, faves, setFaves, setMealId}) => {
                 // replace faves array with filtered array that excludes this id
                 newFaves = faves.filter(fave => fave !== id);
                 setFaves(newFaves);
-                favouriteClass = '';
+                favouriteClass = 'notFavourite';
                 return;
             }
         }
@@ -64,9 +64,9 @@ const MealCard = ({meal, faves, setFaves, setMealId}) => {
 
     return(
         <article className={`bubble card ${favouriteClass}`}>
-            <div className="lineFlex card__banner">
+            <div className="lineFlex marginBelow">
                 <h3 className="card__title" onClick={() => routeChange()}>{outputMeal.name}</h3>
-                <div className={`card__button ${favouriteClass}`} onClick={() => toggleFavourite(outputMeal.id)}>O</div>
+                <div className={`card__button ${favouriteClass}`} onClick={() => toggleFavourite(outputMeal.id)}></div>
             </div>
             <div className="innerBubble">
                 <p>Difficulty: {outputMeal.difficulty.toLowerCase()}</p>

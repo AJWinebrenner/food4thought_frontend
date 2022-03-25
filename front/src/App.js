@@ -50,6 +50,7 @@ function App() {
           <Route path="account" element={<AccountPage setUser={setUser} allMeals={allMeals} user={user} faves={faves} setFaves={setFaves} setMealId={setMealId}/>}/>
           <Route path="meals" element={<MealsPage allMeals={allMeals} user={user} faves={faves} setFaves={setFaves}  setMealId={setMealId}/>}/>
           <Route path="meal-info" element={<SingleMealPage setFaves={setFaves} mealId={mealId} faves={faves}/>} />
+          <Route path="chefs" element={<ChefsPage />} />
         </Route>
       </Routes>
     </Router>

@@ -26,12 +26,17 @@ const AccountPage = ({allMeals, user, setUser, faves, setFaves, cardNum, setCard
     return(
         <>
         <hr/>
-            <SubmissionForm user={user} onSubmitUser={setUser}/>
-            <h2 className="ribbon">Your recommended recipe:</h2>
+            <section className="ribbon">
+                <h2 className="card__title centerText marginBelow">Find recommended recipe:</h2>
+                <SubmissionForm user={user} onSubmitUser={setUser}/>
+            </section>
             <SuggestedMealsContainer user = {user} faves = {faves} setFaves={setFaves} setMealId={setMealId}/>
-            <hr/>
-            <h2 className="bigRibbon white-text">Your favourites:</h2>
+            
+            <section className="bigRibbon ">
+                <h2 className="card__title white-text">Your favourites:</h2>
+            </section>
             <MealsContainer meals={faveMeals} faves={faves} setFaves={setFaves} setMealId={setMealId}/>
+            
         </>
     );
 }
