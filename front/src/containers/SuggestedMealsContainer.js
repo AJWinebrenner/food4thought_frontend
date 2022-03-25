@@ -73,14 +73,24 @@ const SuggestedMealsContainer = ({user, faves, setFaves, setMealId}) => {
 
     // create array of ChefCardMini and use that instead
     if (hasInfo()) {
-        return (
-            <>
-                <article className="columnFlex">
-                    <MealCard meal={suggested} faves={faves} setFaves={setFaves} setMealId={setMealId}/>
-                    <div className="innerBubble middleFlex chefs" onClick={() => routeChange()}>{chefs[0]} <label className="primary-text">|</label> {chefs[1]}</div>
-                </article>
-            </>
-        )
+        if (chefs.length > 1) {
+            return (
+                <>
+                    <article className="columnFlex">
+                        <MealCard meal={suggested} faves={faves} setFaves={setFaves} setMealId={setMealId}/>
+                        <div className="innerBubble middleFlex chefs" onClick={() => routeChange()}>{chefs[0]} <label className="primary-text">|</label> {chefs[1]}</div>
+                    </article>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <article className="columnFlex">
+                        <MealCard meal={suggested} faves={faves} setFaves={setFaves} setMealId={setMealId}/>
+                    </article>
+                </>
+            )
+        }
     } else {
         return (
             <>

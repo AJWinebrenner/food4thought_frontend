@@ -17,8 +17,8 @@ import ChefsPage from './pages/ChefsPage';
 
 function App() {
 
-  const [user, setUser] = useState({mainIngredient: "Milk", difficulty: "BEGINNER", wantHelp: true});
-  const [faves, setFaves] = useState([1,6,7,8,9,10,11,12]);
+  const [user, setUser] = useState({mainIngredient: "", difficulty: "BEGINNER", wantHelp: false});
+  const [faves, setFaves] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [allMeals, setAllMeals] = useState([]);
   const [mealId, setMealId] = useState(0);
