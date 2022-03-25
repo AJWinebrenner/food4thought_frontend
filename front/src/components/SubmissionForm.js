@@ -44,7 +44,7 @@ const SubmissionForm = ({user, onSubmitUser}) => {
 
         return(
             
-            <form onSubmit={handleFormSubmit} className="ribbon">
+            <form onSubmit={handleFormSubmit} className="ribbon centerText">
                 <label htmlFor="main Ingredient">Main ingredient: </label>
                 <input type="text" id="main Ingredient" value={mainIngredient} onChange={(event) => handleChange(event, setMainIngredient)} />
 

@@ -90,6 +90,12 @@ body {
   text-align: center;
 }
 
+.columnFlex{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
 .cardFlex {
   display: flex;
   justify-content: space-around;
@@ -132,10 +138,6 @@ div.favourite::after {
 article.favourite{
   box-shadow: 0px 5px 8px var(--back3);
   border-color: var(--accent);
-}
-
-form {
-  text-align: center;
 }
 
 .chefs {
