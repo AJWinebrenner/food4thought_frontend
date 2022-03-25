@@ -10,7 +10,6 @@ const MealsContainer = ({ meals, faves, setFaves, setMealId }) => {
     const [filterMeals, setFilterMeals] = useState([meals]);
 	const [mealCards, setMealCards] = useState([]);
 
-
 	const findLastSheet = () => {
 		if (filterMeals.length == 0) {
 			setLastSheet(1);
@@ -24,31 +23,6 @@ const MealsContainer = ({ meals, faves, setFaves, setMealId }) => {
 			setSheetNo(lastSheet);
 		}
 	}
-
-	// const newMealsAllergy = () => {
-	// 	{
-	// 		meals
-	// 			.filter((meal) => {
-	// 				let allergen = meal.allergyInfo;
-	// 				if (searchTerm == "") {
-	// 					return meal;
-	// 					console.log("me");
-	// 				} else if (allergen.toLowerCase() === searchTerm.toLowerCase()) {
-	// 					console.log("hi");
-	// 				}
-	// 			})
-	// 			.map((meal) => {
-	// 				console.log(meal.allergyInfo);
-	// 				return (
-	// 					<div key={meal.id}>
-	// 						<p key={meal.name}>{meal.name}</p>
-	// 						<p key={meal.allergyInfo}>{meal.allergy_info}</p>
-	// 					</div>
-	// 				);
-	// 			});
-	// 	}
-	// };
-
 
 	const updateMealCards = () => {
 		// setMealCards([]);

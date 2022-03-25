@@ -43,27 +43,5 @@ const SearchBar = ({ meals, setFilterMeals }) => {
 		</>
 	);
 };
-//onSubmit={handleSubmission}
-export default SearchBar;
 
-/**
- 				{meals
-					.filter((meal) => {
-						let allergen = meal.allergyInfo;
-						if (searchTerm == "") {
-							return meal;
-							console.log("me");
-						} else if (allergen.toLowerCase() === searchTerm.toLowerCase()) {
-							console.log("hi");
-						}
-					})
-					.map((meal) => {
-						console.log(meal.allergyInfo);
-						return (
-							<div key={meal.id}>
-								<p key={meal.name}>{meal.name}</p>
-								<p key={meal.allergyInfo}>{meal.allergy_info}</p>
-							</div>
-						);
-					})}
- */
+export default SearchBar;
