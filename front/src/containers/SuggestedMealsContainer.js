@@ -94,8 +94,7 @@ const SuggestedMealsContainer = ({user, faves, setFaves, setMealId}) => {
     } else {
         return (
             <>
-                <h2>Suggested</h2>
-                <p>no user details</p>
+                <h3 className="centerText">Please enter user details</h3>
             </>
         )
     }   

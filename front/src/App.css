@@ -124,7 +124,9 @@ div.card__button {
 	position: relative;
 	display: inline-block;
 	width: 2em;
+	min-width: 2em;
 	height: 2em;
+	min-height: 2em;
 	line-height: 2em;
 	border: 2px solid var(--back2);
 	border-radius: 1em;
