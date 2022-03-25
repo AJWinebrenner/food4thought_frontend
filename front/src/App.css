@@ -20,6 +20,7 @@ body {
 
 .splash {
 	background-image: url("../public/logo-greener.png");
+	background-repeat: no-repeat;
 	background-size: 420px;
 	height: 190px;
 	background-position: center;
