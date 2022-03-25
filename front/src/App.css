@@ -19,9 +19,11 @@ body {
 }
 
 .splash {
-	background-image: url("../public/logo-green.png");
-	height: 200px;
+	background-image: url("../public/logo-greener.png");
+	background-size: 420px;
+	height: 190px;
 	background-position: center;
+	background-color: var(--back3);
 }
 
 
@@ -143,7 +145,7 @@ div.favourite::after {
 	display: block;
 	content: "\2605";
 	left: 50%;
-	top: -5%;
+	top: -7%;
 	font-size: 1.5em;
 	transform: translateX(-50%);
 	position: absolute;
@@ -174,6 +176,10 @@ article.favourite {
 a {
 	color: var(--primary);
 	text-decoration: none;
+}
+
+li {
+	list-style-position: inside;
 }
 
 .press{
@@ -277,3 +283,17 @@ a {
 		margin: auto;
 
 	}
+
+.slogan {
+	font-style: italic;
+	padding: 0.5rem;
+}
+
+footer {
+	font-size: 10px;
+	text-align: center;
+}
+
+.padding {
+	padding: 0.5rem;
+}

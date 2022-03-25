@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import SubmissionForm from "../components/SubmissionForm";
 import MealsContainer from "../containers/MealsContainer";
 import SuggestedMealsContainer from "../containers/SuggestedMealsContainer";
@@ -36,7 +37,7 @@ const AccountPage = ({allMeals, user, setUser, faves, setFaves, cardNum, setCard
                 <h2 className="card__title white-text">Your favourites:</h2>
             </section>
             <MealsContainer meals={faveMeals} faves={faves} setFaves={setFaves} setMealId={setMealId}/>
-            
+            <Footer/>
         </>
     );
 }

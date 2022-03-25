@@ -1,12 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const SearchBar = ({ meals, setFilterMeals }) => {
 	const [searchTerm, setSearchTerm] = useState("");
-	// console.log(searchTerm.toLowerCase());
+	const [terms, setTerms] = useState([]);
+
+	const findTerms = () => {
+		setTerms(searchTerm.trim().split(" "));
+	}
+
+	const handleFilter = (e) => {
+		e.preventDefault();
+
+		if (!searchTerm) {
+			return;
+		}
+
+		let filterMeals = [];
+		filterMeals = meals.filter(meal => {
+			let match = false;
+			for (let i = 0; i < terms.length; i++)
+				if (meal.name.toLowerCase().includes(terms[i].toLowerCase())) {
+					match = true;
+					break;
+				}
+			return match;
+		})
+		setFilterMeals(filterMeals);
+	}
+
+	useEffect(findTerms, [searchTerm]);
 
 	return (
 		<>
-			<form className="ribbon middleFlex">
+			<form className="ribbon middleFlex" onSubmit={handleFilter}>
 				<input
 					type="text"
 					placeholder="Search meal"
