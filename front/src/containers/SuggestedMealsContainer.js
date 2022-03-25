@@ -72,7 +72,7 @@ const SuggestedMealsContainer = ({user, faves, setFaves, setMealId}) => {
             <>
                 <article className="cardFlex">
                     <MealCard meal={suggested} faves={faves} setFaves={setFaves} setMealId={setMealId}/>
-                    <div className="innerBubble middleFlex chefs">{chefs[0]}{chefs[1]}</div>
+                    <div className="innerBubble middleFlex chefs">{chefs[0]} <label className="primary-text">|</label> {chefs[1]}</div>
                 </article>
             </>
         )
