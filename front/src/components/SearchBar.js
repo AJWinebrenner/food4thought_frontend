@@ -12,7 +12,7 @@ const SearchBar = ({ meals, setFilterMeals }) => {
 					placeholder="Search"
 					onChange={(event) => setSearchTerm(event.target.value)}
 				></input>
-				<input type="submit" value="submit" />
+				<input className="button" type="submit" value="submit" />
 			</form>
 		</>
 	);
