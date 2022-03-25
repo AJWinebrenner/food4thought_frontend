@@ -264,32 +264,35 @@ li {
 	transform: translateY(0);
 }
 
-
 .primary-text{
 	color: var(--primary);
-  }
+}
   
-  .accent-text{
-	  color: var(--accent);
-  }
+.accent-text{
+	color: var(--accent);
+}
   
-  .white-text{
-	  color: white;
-	}
+.white-text{
+	color: white;
+}
 
-	form {
-		text-align: center;
-		line-height: 1.2rem;
-	}
+form {
+	text-align: center;
+	line-height: 1.2rem;
+}
 
 .submitButton	{
 		margin: auto;
 
-	}
+}
 
 .slogan {
 	font-style: italic;
 	padding: 0.5rem;
+}
+
+.links {
+	margin: 1rem auto;
 }
 
 footer {
