@@ -96,11 +96,11 @@ const MealsContainer = ({ meals, faves, setFaves, setMealId }) => {
             	Meals per page: <label className="press" onClick={() => setCards(1)}>1</label> - <label className="press" onClick={() => setCards(4)}>4</label> - <label className="press" onClick={() => setCards(8)}>8</label> - <label className="press" onClick={() => setCards(16)}>16</label>
             </p>
 			<div className="middleFlex">
-				<button onClick={() => cycleSheet(-1)}>Back</button>
+				<button className="button" onClick={() => cycleSheet(-1)}>Back</button>
 				<span>
 					{sheetNo} / {lastSheet}
 				</span>
-				<button onClick={() => cycleSheet(1)}>Next</button>
+				<button className="button" onClick={() => cycleSheet(1)}>Next</button>
 			</div>
 			</section>
 		</>
